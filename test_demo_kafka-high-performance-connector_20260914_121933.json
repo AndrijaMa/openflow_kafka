@@ -45,7 +45,7 @@
     },
     {
       "name": "Kafka Topics",
-      "value": "sales,orders",
+      "value": "sales",
       "sensitive": false,
       "description": "Kafka Consumer Group Identifier corresponding to Kafka group.id property"
     },
