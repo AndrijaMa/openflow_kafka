@@ -1,0 +1,83 @@
+{
+  "exported_at": "2026-09-11T22:26:13",
+  "deployment": "test",
+  "runtime": "demo",
+  "profile": "ie_demo99_demo",
+  "connector": "SQLServer CDC",
+  "process_group_id": "8f27e439-01a0-1000-0000-00007dd090f6",
+  "parameter_context": "SQLServer Ingestion Parameters",
+  "parameters": [
+    {
+      "name": "Column Filter JSON",
+      "value": "[]",
+      "sensitive": false,
+      "description": "A JSON array of filter objects specifying columns to include or exclude per table.\nEach object identifies a target by database/databasePattern, schema/schemaPattern and table/tablePattern (give either the exact name or a regex pattern for each, not both) and must provide at least one of: included, excluded (column-name arrays), includedPattern, excludedPattern (regex).\nPrimary key columns are always retained. When both include and exclude are specified, exclusions take precedence; when multiple filters match, the last match wins and exact matches outrank patterns.\nExample:\n[{\"database\":\"my_db\",\"schema\":\"public\",\"tablePattern\":\"orders_.*\",\"includedPattern\":\".*_status\",\"excluded\":[\"internal_status\"]}]\nThis replicates only the columns ending in '_status' (except 'internal_status') from every table matching 'orders_.*' in the 'public' schema of the 'my_db' database."
+    },
+    {
+      "name": "Concurrent Select Queries For Incremental",
+      "value": "1",
+      "sensitive": false,
+      "description": "The maximum number of concurrent SELECT queries to run against the database. The upper limit is the number of concurrent tasks set on the processor"
+    },
+    {
+      "name": "Concurrent Select Queries For Snapshot",
+      "value": "1",
+      "sensitive": false,
+      "description": "The maximum number of concurrent SELECT queries to run against the database during the snapshot phase"
+    },
+    {
+      "name": "Included Table Names",
+      "value": null,
+      "sensitive": false,
+      "description": "A comma-separated list of fully-qualified table names that should be replicated. The format should be <database>.<schema name>.<table name>. If names are case sensitive or contain special characters - they should be quoted. For example: \"db1\".\"public\".\"table1\", DB2.SCHEMA2.\"table2\", \"db3\".\"public\".\"table3\""
+    },
+    {
+      "name": "Included Table Regex",
+      "value": null,
+      "sensitive": false,
+      "description": "A Regular Expression that can be matched against table names to determine if the table should be included. The Regular Expression should match the fully qualified table name: <database>.<schema>.<table>. For example, to include all tables in the DB1 database and \"public\" schema, use DB1\\.public\\..*"
+    },
+    {
+      "name": "Ingestion Type",
+      "value": "full",
+      "sensitive": false,
+      "description": "Determine if snapshot load should be skipped and only incremental CDC phase should take place. If set to \"incremental\" current database rows will not be replicated (snapshot will be skipped) and only new changes will be applied. Default value is \"full\" which means both snapshot and incremental will be performed."
+    },
+    {
+      "name": "Merge Task Schedule CRON",
+      "value": "0 * * * * ?",
+      "sensitive": false,
+      "description": "CRON expression defining periods when merge operations from Journal to Destination Table will be triggered. Set it to * * * * * ? if you want to have continuous merge or time schedule to limit warehouse run time.\nFor example:\n\u2022 The string * 0 * * * ? indicates that you want to schedule merges at full hour for one minute\n\u2022 The string * 20 14 ? * MON-FRI indicates that you want to schedule merges at 2:20 PM every Monday through Friday.\nFor additional information and examples, see the cron triggers tutorial in the Quartz Documentation https://www.quartz-scheduler.org/documentation/quartz-2.2.2/tutorials/tutorial-lesson-06.html"
+    },
+    {
+      "name": "Re-read Tables in State",
+      "value": "New",
+      "sensitive": false,
+      "description": "Only applicable when 'Starting CDC Position' is set to 'Earliest'. Choose whether re-reading events from the earliest position should include tables in any active state (set 'Any active'), or new tables only (set 'New')."
+    },
+    {
+      "name": "Re-snapshot Table Exclusions",
+      "value": null,
+      "sensitive": false,
+      "description": "A comma-separated list of fully-qualified table names that should NOT be replicated, from among tables matching the included criteria. The format should be <database>.<schema name>.<table name>. If names are case sensitive or contain special characters - they should be quoted. For example: \"db1\".\"public\".\"table1\", DB2.SCHEMA2.\"table2\", \"db3\".\"public\".\"table3\""
+    },
+    {
+      "name": "SQL Server Read Timeout",
+      "value": "60000",
+      "sensitive": false,
+      "description": "Read Timeout in milliseconds applied to both Snapshot and Incremental queries. A query that runs longer than this value will be closed by the SQL Server."
+    },
+    {
+      "name": "Starting CDC Position",
+      "value": "Latest",
+      "sensitive": false,
+      "description": "Position from which to start reading CDC changes. Either 'Latest' (reading tables will start from the latest CDC LSN position), or 'Earliest' (reading tables will start from the earliest available CDC LSN position)."
+    },
+    {
+      "name": "Table Key Configuration JSON",
+      "value": "[]",
+      "sensitive": false,
+      "description": "JSON specifying logical key columns for tables that lack a primary key or where you want to override the default key used for MERGE operations. Accepts a single object or an array.\nEach entry must have:\n  - \"database\"\n  - \"schema\"\n  - \"table\"\n  - \"logicalKey\" - array of column names to use as the MERGE key\n\nExample:\n[\n  {\n    \"database\": \"MY_DB\",\n    \"schema\": \"MY_SCHEMA\",\n    \"table\": \"ORDERS\",\n    \"logicalKey\": [\"TENANT_ID\", \"ORDER_REF\"]\n  }\n]\n\nLogical key takes priority over primary key and unique constraints. Columns must exist in the table and should be effectively unique in the source - duplicate values may result in duplicate rows during snapshot. If a logical key column is dropped or renamed, the table will be marked as FAILED."
+    }
+  ]
+}

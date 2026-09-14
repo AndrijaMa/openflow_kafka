@@ -1,0 +1,83 @@
+{
+  "exported_at": "2026-09-11T22:40:43",
+  "deployment": "test",
+  "runtime": "demo",
+  "profile": "ie_demo99_demo",
+  "connector": "Amazon Ads",
+  "process_group_id": "922b0eba-01a0-1000-ffff-ffffea5507ca",
+  "parameter_context": "Amazon Ads Ingestion Parameters",
+  "parameters": [
+    {
+      "name": "Report Ad Product",
+      "value": "SPONSORED_PRODUCTS",
+      "sensitive": false,
+      "description": "Type of advertising product being reported. Allowed values: SPONSORED_PRODUCTS, SPONSORED_BRANDS, SPONSORED_DISPLAY, SPONSORED_TELEVISION, DEMAND_SIDE_PLATFORM"
+    },
+    {
+      "name": "Report Columns",
+      "value": "campaignName,campaignId,clicks",
+      "sensitive": false,
+      "description": "List of columns fetched from Reporting API"
+    },
+    {
+      "name": "Report Filters",
+      "value": null,
+      "sensitive": false,
+      "description": "Set of filters used to trim returned data"
+    },
+    {
+      "name": "Report Group By",
+      "value": "campaign",
+      "sensitive": false,
+      "description": "Level of granularity of the report"
+    },
+    {
+      "name": "Report Ingestion Strategy",
+      "value": "snapshot",
+      "sensitive": false,
+      "description": "Configuration of the report ingestion. Allowed values: snapshot, incremental"
+    },
+    {
+      "name": "Report Ingestion Window",
+      "value": "31",
+      "sensitive": false,
+      "description": "How many days from the past should be downloaded during incremental ingestion"
+    },
+    {
+      "name": "Report Name",
+      "value": null,
+      "sensitive": false,
+      "description": "Unique name of the report"
+    },
+    {
+      "name": "Report Profile ID",
+      "value": null,
+      "sensitive": false,
+      "description": "The profile ID associated with an advertising account in a specific marketplace"
+    },
+    {
+      "name": "Report Schedule",
+      "value": "1 day",
+      "sensitive": false,
+      "description": "Create Amazon Ads Report processor schedule"
+    },
+    {
+      "name": "Report Start Date",
+      "value": null,
+      "sensitive": false,
+      "description": "Start date from which the ingestion should happen"
+    },
+    {
+      "name": "Report Time Unit",
+      "value": "DAILY",
+      "sensitive": false,
+      "description": "Date aggregation. Allowed values: DAILY, SUMMARY"
+    },
+    {
+      "name": "Report Type",
+      "value": "spCampaigns",
+      "sensitive": false,
+      "description": "Data type contained in the report"
+    }
+  ]
+}
