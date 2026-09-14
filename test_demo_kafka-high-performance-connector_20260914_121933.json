@@ -1,0 +1,71 @@
+{
+  "exported_at": "2026-09-14T12:19:33",
+  "deployment": "test",
+  "runtime": "demo",
+  "profile": "ie_demo99_demo",
+  "connector": "kafka-high-performance-connector",
+  "process_group_id": "9f1f4e81-01a0-1000-ffff-ffffae42d695",
+  "parameter_context": "Kafka High Performance",
+  "parameters": [
+    {
+      "name": "Kafka Auto Offset Reset",
+      "value": "earliest",
+      "sensitive": false,
+      "description": "Automatic offset configuration applied when no previous consumer offset found corresponding to Kafka auto.offset.reset property.\n\nPossible values:\nearliest: automatically reset the offset to the earlier offset, \nlatest: automatically reset the offset to the latest offset, \nnone: throw exception to the consumer if no previous offset found for the consumer group"
+    },
+    {
+      "name": "Kafka Bootstrap Servers",
+      "value": " orvill.ddns.net",
+      "sensitive": false,
+      "description": "Comma-separated list of Kafka Bootstrap Servers in the format host:port. Corresponds to Kafka bootstrap.servers property."
+    },
+    {
+      "name": "Kafka Consumer Group ID",
+      "value": null,
+      "sensitive": false,
+      "description": "The ID of a consumer group used by the connector. Can be arbitrary but must be unique."
+    },
+    {
+      "name": "Kafka SASL Password",
+      "value": "<sensitive>",
+      "sensitive": true,
+      "description": "Password provided with configured password when using SASL512 SCRAM Mechanism"
+    },
+    {
+      "name": "Kafka SASL Username",
+      "value": null,
+      "sensitive": false,
+      "description": "Username provided with configured password when using SASL512 SCRAM Mechanism"
+    },
+    {
+      "name": "Kafka Topic Format",
+      "value": "names",
+      "sensitive": false,
+      "description": "Specifies whether the Topics provided are a comma separated list of names or a single regular expression.\n\nOne of\nnames: topic is a full topic name or comma separated list of names\npattern: topic is a regular expression according to the Java Pattern syntax"
+    },
+    {
+      "name": "Kafka Topics",
+      "value": "sales",
+      "sensitive": false,
+      "description": "Kafka Consumer Group Identifier corresponding to Kafka group.id property"
+    },
+    {
+      "name": "Snowflake Destination Database",
+      "value": null,
+      "sensitive": false,
+      "description": "The database where data will be persisted. It must already exist in Snowflake. The name is case-sensitive. For unquoted identifiers, provide the name in uppercase."
+    },
+    {
+      "name": "Snowflake Destination Schema",
+      "value": null,
+      "sensitive": false,
+      "description": "Snowflake Schema destination for processed records"
+    },
+    {
+      "name": "Snowflake Destination Table",
+      "value": null,
+      "sensitive": false,
+      "description": "Snowflake Table destination for processed records"
+    }
+  ]
+}
