@@ -18,7 +18,7 @@ Both talk to the NiFi REST API of an Openflow runtime through a stored `nipyapi`
 - An Openflow infrastructure cache at `~/.snowflake/cortex/memory/openflow_infrastructure_*.json`, which maps deployments/runtimes to profiles. This is what lets you select a runtime by name instead of a raw profile.
 - The target runtime must be running (a suspended/restarting runtime returns HTTP 503).
 
-List what's available:
+List what's available; 
 
 ```bash
 python3 get_connector_parameters.py --list-runtimes
