@@ -20,15 +20,15 @@ Parameter values can come from:
 Usage:
     # Preview (dry run) — safe, makes no changes
     python3 put_connector_parameters.py --deployment test --runtime demo \
-        --connector "Amazon Ads" --set "Report Time Unit=DAILY"
+        --connector "Kafka Highperformance" --set "Kafka Topics=orders,events"
 
     # Apply the change
     python3 put_connector_parameters.py --deployment test --runtime demo \
-        --connector "Amazon Ads" --set "Report Time Unit=DAILY" --apply
+        --connector "Kafka Highperformance" --set "Kafka Topics=orders,events" --apply
 
     # From a file (e.g. an export produced by get_connector_parameters.py)
-    python3 put_connector_parameters.py --runtime demo --connector "Amazon Ads" \
-        --from-file exports/test_demo_Amazon_Ads_20260911_223539.json --apply
+    python3 put_connector_parameters.py --runtime demo --connector "Kafka Highperformance" \
+        --from-file exports/test_demo_Kafka_Highperformance_20260911_223539.json --apply
 
     python3 put_connector_parameters.py --list-runtimes
 """

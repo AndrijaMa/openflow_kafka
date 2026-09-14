@@ -11,9 +11,9 @@ shown as "<sensitive>" so no secrets are echoed.
 
 Usage:
     python3 get_connector_parameters.py                          # all connectors on demo
-    python3 get_connector_parameters.py --runtime demo --connector "SQL"
+    python3 get_connector_parameters.py --runtime demo --connector "Kafka Highperformance"
     python3 get_connector_parameters.py --deployment test --runtime demo --all
-    python3 get_connector_parameters.py --profile ie_demo99_demo --connector "Kafka"
+    python3 get_connector_parameters.py --profile ie_demo99_demo --connector "Kafka Highperformance"
     python3 get_connector_parameters.py --list-runtimes
     python3 get_connector_parameters.py --json
 """

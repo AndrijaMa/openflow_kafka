@@ -70,7 +70,7 @@ python3 get_connector_parameters.py --deployment test --runtime demo
 
 # Just one connector, into an exports/ folder
 python3 get_connector_parameters.py --deployment test --runtime demo \
-    --connector "Amazon Ads" --out-dir exports
+    --connector "Kafka Highperformance" --out-dir exports
 
 # Recurse into nested groups and also print JSON to stdout
 python3 get_connector_parameters.py --runtime demo --all --json
@@ -110,19 +110,19 @@ its owning context automatically.
 ```bash
 # 1) Preview a change (safe — makes no changes)
 python3 put_connector_parameters.py --deployment test --runtime demo \
-    --connector "Amazon Ads" --set "Report Time Unit=DAILY"
+    --connector "Kafka Highperformance" --set "Kafka Topics=orders,events"
 
 # 2) Apply it
 python3 put_connector_parameters.py --deployment test --runtime demo \
-    --connector "Amazon Ads" --set "Report Time Unit=DAILY" --apply
+    --connector "Kafka Highperformance" --set "Kafka Topics=orders,events" --apply
 
 # 3) Set several parameters at once
-python3 put_connector_parameters.py --runtime demo --connector "Amazon Ads" \
-    --set "Report Time Unit=DAILY" --set "Report Ingestion Window=31" --apply
+python3 put_connector_parameters.py --runtime demo --connector "Kafka Highperformance" \
+    --set "Kafka Topics=orders,events" --set "Kafka Broker Endpoints=broker:9092" --apply
 
 # 4) Apply values from an export file (edit it first as needed)
-python3 put_connector_parameters.py --runtime demo --connector "Amazon Ads" \
-    --from-file exports/test_demo_Amazon_Ads_20260911_223539.json --apply
+python3 put_connector_parameters.py --runtime demo --connector "Kafka Highperformance" \
+    --from-file exports/test_demo_Kafka_Highperformance_20260911_223539.json --apply
 ```
 
 ### Sensitive parameters
