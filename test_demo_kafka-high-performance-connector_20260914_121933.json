@@ -45,7 +45,7 @@
     },
     {
       "name": "Kafka Topics",
-      "value": "regions,customers",
+      "value": "regions",
       "sensitive": false,
       "description": "Kafka Consumer Group Identifier corresponding to Kafka group.id property"
     },
