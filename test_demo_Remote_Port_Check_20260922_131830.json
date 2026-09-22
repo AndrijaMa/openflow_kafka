@@ -1,0 +1,23 @@
+{
+  "exported_at": "2026-09-22T13:18:30",
+  "deployment": "test",
+  "runtime": "demo",
+  "profile": "ie_demo99_demo",
+  "connector": "Remote Port Check",
+  "process_group_id": "c040a25d-01a0-1000-ffff-ffffdcb6ad64",
+  "parameter_context": "Remote Port Check Params",
+  "parameters": [
+    {
+      "name": "server.name",
+      "value": "orvill.ddns.net",
+      "sensitive": false,
+      "description": "Remote server hostname or IP to check"
+    },
+    {
+      "name": "server.port",
+      "value": "5432",
+      "sensitive": false,
+      "description": "TCP port to check for openness"
+    }
+  ]
+}
