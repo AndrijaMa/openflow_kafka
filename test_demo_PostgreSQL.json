@@ -1,0 +1,65 @@
+{
+  "exported_at": "2026-09-29T09:05:07",
+  "deployment": "test",
+  "runtime": "demo",
+  "profile": "ie_demo99_demo",
+  "connector": "PostgreSQL",
+  "process_group_id": "ebfa1385-01a0-1000-ffff-ffffcd1077e9",
+  "parameter_context": "PostgreSQL Ingestion Parameters (1)",
+  "parameters": [
+    {
+      "name": "Column Filter JSON",
+      "value": "[]",
+      "sensitive": false,
+      "description": "A JSON array of filter objects specifying columns to include or exclude per table.\nEach object identifies a target by schema/schemaPattern and table/tablePattern (give either the exact name or a regex pattern for each, not both) and must provide at least one of: included, excluded (column-name arrays), includedPattern, excludedPattern (regex).\nPrimary key columns are always retained. When both include and exclude are specified, exclusions take precedence; when multiple filters match, the last match wins and exact matches outrank patterns.\nExample:\n[{\"schema\":\"public\",\"tablePattern\":\"orders_.*\",\"includedPattern\":\".*_status\",\"excluded\":[\"internal_status\"]}]\nThis replicates only the columns ending in '_status' (except 'internal_status') from every table matching 'orders_.*' in the 'public' schema."
+    },
+    {
+      "name": "Concurrent Snapshot Queries",
+      "value": "2",
+      "sensitive": false,
+      "description": "Maximum number of concurrent queries to the source database to run in the Snapshot flow. Increasing this can speed up snapshotting large numbers of tables, but will also increase the load on the source database."
+    },
+    {
+      "name": "Included Table Names",
+      "value": null,
+      "sensitive": false,
+      "description": "A comma-separated list of fully-qualified table names that should be replicated. The format should be <schema name>.<table name>. For example: public.table1, public.table2, public.table3"
+    },
+    {
+      "name": "Included Table Regex",
+      "value": null,
+      "sensitive": false,
+      "description": "A Regular Expression that can be matched against table names to determine if the table should be included. The Regular Expression should match the fully qualified table name. For example, to include all tables in the \"snowflake\" schema, use snowflake\\..*"
+    },
+    {
+      "name": "Ingestion Type",
+      "value": "full",
+      "sensitive": false,
+      "description": "Determine if snapshot load should be skipped and only incremental CDC phase should take place. If set to \"incremental\" current database rows will not be replicated (snapshot will be skipped) and only new changes will be applied. Default value is \"full\" which means both snapshot and incremental will be performed."
+    },
+    {
+      "name": "Merge Task Schedule CRON",
+      "value": "0 * * * * ?",
+      "sensitive": false,
+      "description": "CRON expression defining periods when merge operations from Journal to Destination Table will be triggered. Set it to * * * * * ? if you want to have continuous merge or time schedule to limit warehouse run time.\nFor example:\n\u2022 The string * 0 * * * ? indicates that you want to schedule merges at full hour for one minute\n\u2022 The string * 20 14 ? * MON-FRI indicates that you want to schedule merges at 2:20 PM every Monday through Friday.\nFor additional information and examples, see the cron triggers tutorial in the Quartz Documentation https://www.quartz-scheduler.org/documentation/quartz-2.2.2/tutorials/tutorial-lesson-06.html"
+    },
+    {
+      "name": "Object Identifier Resolution",
+      "value": "CASE_SENSITIVE",
+      "sensitive": false,
+      "description": "Do not change after initial start of the connector. Determines if schema / table / column names are treated as case-sensitive or case-insensitive. One of: CASE_INSENSITIVE / CASE_SENSITIVE"
+    },
+    {
+      "name": "Re-snapshot Table Exclusions",
+      "value": null,
+      "sensitive": false,
+      "description": "A comma-separated list of fully-qualified table names that should NOT be replicated, from among tables matching the included criteria. The format should be <schema name>.<table name>. For example: public.table1, public.table2, public.table3"
+    },
+    {
+      "name": "Table Key Configuration JSON",
+      "value": "[]",
+      "sensitive": false,
+      "description": "JSON specifying logical key columns for tables that lack a primary key or where you want to override the default key used for MERGE operations. Accepts a single object or an array.\nEach entry must have:\n  - \"schema\"\n  - \"table\"\n  - \"logicalKey\" - array of column names to use as the MERGE key\n\nExample:\n[\n  {\n    \"schema\": \"MY_SCHEMA\",\n    \"table\": \"ORDERS\",\n    \"logicalKey\": [\"TENANT_ID\", \"ORDER_REF\"]\n  }\n]\n\nLogical key takes priority over primary key and unique constraints. Columns must exist in the table and should be effectively unique in the source - duplicate values may result in duplicate rows during snapshot. If a logical key column is dropped or renamed, the table will be marked as FAILED."
+    }
+  ]
+}
