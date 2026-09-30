@@ -1,5 +1,5 @@
 {
-  "exported_at": "2026-09-22T13:19:30",
+  "exported_at": "2026-09-30T22:21:24",
   "deployment": "test",
   "runtime": "demo",
   "profile": "ie_demo99_demo",
@@ -15,13 +15,13 @@
     },
     {
       "name": "Kafka Bootstrap Servers",
-      "value": " orvill.ddns.net",
+      "value": " orvill.ddns.net:9092",
       "sensitive": false,
       "description": "Comma-separated list of Kafka Bootstrap Servers in the format host:port. Corresponds to Kafka bootstrap.servers property."
     },
     {
       "name": "Kafka Consumer Group ID",
-      "value": null,
+      "value": "openflow-demo",
       "sensitive": false,
       "description": "The ID of a consumer group used by the connector. Can be arbitrary but must be unique."
     },
@@ -33,7 +33,7 @@
     },
     {
       "name": "Kafka SASL Username",
-      "value": null,
+      "value": "admin",
       "sensitive": false,
       "description": "Username provided with configured password when using SASL512 SCRAM Mechanism"
     },
@@ -45,25 +45,25 @@
     },
     {
       "name": "Kafka Topics",
-      "value": "regions",
+      "value": "escooter",
       "sensitive": false,
       "description": "Kafka Consumer Group Identifier corresponding to Kafka group.id property"
     },
     {
       "name": "Snowflake Destination Database",
-      "value": null,
+      "value": "RAW_DATA",
       "sensitive": false,
       "description": "The database where data will be persisted. It must already exist in Snowflake. The name is case-sensitive. For unquoted identifiers, provide the name in uppercase."
     },
     {
       "name": "Snowflake Destination Schema",
-      "value": null,
+      "value": "KAFKA_ESCOOTER",
       "sensitive": false,
       "description": "Snowflake Schema destination for processed records"
     },
     {
       "name": "Snowflake Destination Table",
-      "value": null,
+      "value": "TELEMETRY",
       "sensitive": false,
       "description": "Snowflake Table destination for processed records"
     }
